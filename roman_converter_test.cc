@@ -6,9 +6,7 @@
 #include <utility>
 
 std::string roman_numeral(int number) {
-  std::string result = "";
-
-  const std::array<std::pair<int, std::string>, 13> numerals{
+  constexpr auto conversion_table = {
       std::make_pair(1000, "M"), std::make_pair(900, "CM"),
       std::make_pair(500, "D"),  std::make_pair(400, "CD"),
       std::make_pair(100, "C"),  std::make_pair(90, "XC"),
@@ -17,14 +15,13 @@ std::string roman_numeral(int number) {
       std::make_pair(5, "V"),    std::make_pair(4, "IV"),
       std::make_pair(1, "I")};
 
-  for (int i = 0; i < numerals.size(); ++i) {
-    int count = number / numerals[i].first;
-    number = number % numerals[i].first;
-    for (int j = 0; j < count; ++j) {
-      result += numerals[i].second;
+  std::string result = "";
+  for (const auto element : conversion_table) {
+    while (number >= element.first) {
+      result += element.second;
+      number -= element.first;
     }
   }
-
   return result;
 }
 
