@@ -1,0 +1,3 @@
+add_executable(roman_numeral_test catch_main.cc roman_numeral_test.cc)
+target_link_libraries(roman_numeral_test PRIVATE catch2::catch roman_numeral)
+add_test(roman_numeral_test roman_numeral_test)

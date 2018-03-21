@@ -6,6 +6,7 @@ enable_testing()
 add_subdirectory(cmake)
 include(catch2-as-external-project)
 
-add_executable(roman_converter_test catch_main.cc roman_converter_test.cc)
-target_link_libraries(roman_converter_test PRIVATE catch2::catch)
-add_test(roman_converter_test roman_converter_test)
+add_library(roman_numeral roman_numeral.cc)
+target_include_directories(roman_numeral PUBLIC .)
+
+add_subdirectory(tests)
