@@ -5,8 +5,8 @@ enable_testing()
 
 add_subdirectory(cmake)
 include(catch2-as-external-project)
-# include(doctest-as-external-project)
-find_package(doctest REQUIRED)
+include(doctest-as-external-project)
+# find_package(doctest REQUIRED)
 
 add_library(roman_numeral roman_numeral.cc)
 target_include_directories(roman_numeral PUBLIC .)
