@@ -1,3 +1,0 @@
-[submodule "cmake"]
-	path = cmake
-	url = https://gitlab.com/lyrahgames/custom_cmake_modules.git

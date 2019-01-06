@@ -1,7 +1,14 @@
-add_executable(roman_numeral_test catch_main.cc roman_numeral_test.cc)
-target_link_libraries(roman_numeral_test PRIVATE catch2::catch roman_numeral)
-add_test(roman_numeral_test roman_numeral_test)
+find_package(doctest REQUIRED)
 
-add_executable(roman_numeral_doctest roman_numeral_doctest.cc)
-target_link_libraries(roman_numeral_doctest PRIVATE doctest::doctest roman_numeral)
-add_test(roman_numeral_doctest roman_numeral_doctest)
+add_executable(roman_numeral_test
+  doctest_main.cc
+  roman_numeral.cc
+)
+
+target_link_libraries(roman_numeral_test
+  PRIVATE
+    doctest::doctest
+    roman_numeral::roman_numeral
+)
+
+add_test(roman_numeral_test roman_numeral_test)
